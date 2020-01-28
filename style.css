@@ -1,0 +1,12 @@
+#survey {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#submit-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
+}
