@@ -1,13 +1,16 @@
 // IMPORT MODULES under test here:
-// import example from '../src/example.js';
+import  { firstArrayFunction } from '..app.js'
+import { products } from '..item.Array.js'
 
 const test = QUnit.test;
 
-test('time to test a function', function(assert) {
+test('first array', function(assert) {
     //Arrange
-    // Set up your parameters and expectations
+    const input = products
+    const expected = 
 
     //Act 
+    const result = firstArrayFunction (input)
     // Call the function you're testing and set the result to a const
 
     //Assert

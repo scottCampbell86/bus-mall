@@ -1,68 +1,68 @@
-export const productData = [
+export const products = [
     {
         id: 'bag',
         name: 'Bag',
-        image: '---',
+        image: 'assets/bag.jpg',
     },
     {
         id: 'banana',
         name: 'Banana',
-        image: '---',
+        image: 'assets/banana.jpg',
     },
     {
         id: 'bathroom',
         name: 'Bathroom',
-        image: '---',
+        image: 'assets/bathroom.jpg',
     },
     {
         id: 'boots',
         name: 'Boots',
-        image: '---',
+        image: 'assets/boots.jpg',
     },
     {
         id: 'breakfast',
         name: 'Breakfast',
-        image: '---',
+        image: 'assets/breakfast.jpg',
     },
     {
         id: 'bubblegum',
         name: 'Bubblegum',
-        image: '---',
+        image: 'assets/bubblegum.jpg',
     },
     {
         id: 'chair',
         name: 'Chair',
-        image: '---',
+        image: 'assets/chair.jpg',
     },
     {
         id: 'cthulhu',
         name: 'Cthulhu',
-        image: '---',
+        image: 'assets/cthulhu.jpg',
     },
     {
         id: 'dog-duck',
         name: 'Dog-duck',
-        image: '---',
+        image: 'assets/dog-duck.jpg',
     },
     {
         id: 'dragon',
         name: 'Dragon',
-        image: '---',
+        image: 'assets/dragon.jpg',
     },
     {
         id: 'pen',
         name: 'Pen',
-        image: '---',
+        image: 'assets/pen.jpg',
     },
     {
         id: 'pet-sweep',
         name: 'Pet-Sweep',
-        image: '---',
+        image: 'assets/pet-sweep.jpg',
     },
     {
         id: 'scissors',
         name: 'Scissors',
-        image: '---',
+        image: 'assets/scissors.jpg',
     },
     {
         id: 'shark',
@@ -82,21 +82,21 @@ export const productData = [
     {
         id: 'unicorn',
         name: 'Unicorn',
-        image: '---',
+        image: 'assets/shark.jpg',
     },
     {
         id: 'usb',
         name: 'USB',
-        image: '---',
+        image: 'assets/usb.gif',
     },
     {
         id: 'water-can',
         name: 'Water-can',
-        image: '---',
+        image: 'assets/water-can.jpg',
     },
     {
         id: 'wine-glass',
         name: 'Wine-glass',
-        image: '---',
+        image: 'assets/wine-glass.jpg',
     },
 ];
