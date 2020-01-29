@@ -21,8 +21,8 @@ let totalSets;
     // this is a variable who value will be incremented with each display rendering
 
 const initiateState = () => {
-    selections = 0;
-    totalViews = 0;
+    selections = [];
+    totalViews = [];
     totalSets = 0;
 };
 
@@ -32,11 +32,9 @@ initiateState();
 
 /// ---> SECOND : What will the user do to interact and modify these variables and update the state? AND, what does the site require for such an intervention?
 // 1. Display content
-    // need a number randomizer function that will generate nums that we can use as indicies to identify and return array items at random
-    // return 3 dissimlar products and render thsoe items on the page 
-        // render AS radio buttons
-        // will need to link products to radio buttons (assign radio to product)
-        // value of radio buttons to id of product (radio.value = product.id)
+    // need a number randomizer function that will generate nums that we can use as indicies to identify and return sets of items at random
+      // must return 3 dissimlar products 
+      
   
 
     //randomizer
@@ -46,7 +44,7 @@ const randomProduct = (productsList) => {
     return randomProduct;
 }
 
-  //function will first, utilize our randomizer to return 3 dissimlar products 
+  //function (which will be called in eventual eventListener) will first, utilize our randomizer to return 3 dissimlar products 
 const returnThreeProducts = () => {
   
     let productOne = randomProduct(productsList);
@@ -59,23 +57,86 @@ const returnThreeProducts = () => {
         productThree = randomProduct(productsList);
     }
 
-//AND then manipulate the DOM, rendering the content
-    let radioOne = 
-    let radioTwo =
-    let radioThree =
+/// 2: equipped with those products, now manipulate the         DOM, rendering the content
+        //create seperate variables for each State element and assign corresponding properties from generated products
+          // each property (image ; name ; id) will be assigned to a variable.
+              //what do id's link to?
+              //where do img's go? What is needed (src)?
+              //where will name appear? How (p, h)?
 
-    radioOne.value =
-    radioTwo.value =
-    radioThree.value =
+   /// these are all NEW variables, grabbing DOM
+    // id's
+    const radioOneButton = document.getElementById('radio-one');
+    const radioTwoButton = document.getElementById('radio-two');
+    const radioThreeButton = document.getElementById('radio-three') ;
+
+    // text 
+    const productOneText = document.getElementById('product-1-h3');
+    const productTwoText = document.getElementById('product-2-h3');
+    const productThreeText = document.getElementById('product-3-h3');
+
+    //image 
+    const radioOneImage = document.getElementById('radio-1-image');
+    const radioTwoImage = document.getElementById('radio-2-image');
+    const radioThreeImage = document.getElementById('radio-3-image');
+
+
+
+    //Assign appropriate properties of the displayed products (those generated above) to these DOM-grabbing-variables
+    //button
+        // id's --> values
+    radioOneButton.value = productOne.id;
+    radioTwoButton .value = productTwo.id;
+    radioThreeButton.value = productThree.id;
+
+    //text.content
+        // h3's to names
+    productOneText = productOne.name;
+    productTwoText = productTwo.name;
+    productThreeText = productThree.name;
+
+    //img
+        // assign the DOM variable's src to the iamge propert of generated product because 
+    radioOneImage.src = productOne.image;
+    radioTwoImage.src = productTwo.image;
+    radioThreeImage.src = productThree.image;
+    
 };
 
+/* INVENTORY
+  I have: 
+          -connected the value of radio buttons to the id           of the prouct (this value means I can access the id of the product upon selection)
+          -Names of products stored in var
+          -src of images stored in variable
+          - a function that returns three randomly generated products
+          - a function that generates individual random products
+          - declared state variables
+          - a function that sets an intial state
+  */
+
+
+
+// 3. need an eventListener that will 
+    // call the display function()
+    // must have be able to increment the values of state variables: selections ; total views ; total sets
+    // must discern between rendering new content OR ending survery
+        // conditions are if sets >= 25, survery ends and will DISPLAY RESULTS. If not, render new content and continue to increment.
+
+const form = document.querySelector('form')
+//this is creating a variable that is assigned to the value of the form and its contents
+
+
+form.addEventListener
 
 
 
 
-// 2. need an eventListener that will increment both set and selection count 
-    // and will either render new content OR if sets >= 25, will DISPLAY RESULTS
 
+
+
+
+
+// 4. Display results
 
 
 
