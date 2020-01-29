@@ -1,4 +1,4 @@
-export const products = [
+const products = [
     {
         id: 'bag',
         name: 'Bag',
@@ -98,5 +98,7 @@ export const products = [
         id: 'wine-glass',
         name: 'Wine-glass',
         image: 'assets/wine-glass.jpg',
-    },
+    }
 ];
+
+export default products;

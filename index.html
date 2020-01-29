@@ -17,41 +17,40 @@
     </header>
 
     <main id="survey">
-        <div class="photos">
-            <label="selection">
-                <input type="radio" name="radio" id="" value="">
-                <img id="photo-1" src="">
-            </label>
+        <form class="photos">
+            <div id="img-div">
+                <label>
+                    <img id="photo-1" class= "photos" src="assets/cthulhu.jpg">
+                    <input id="radioOne" type="radio" name="radio"  value="">
+                </label>
 
-            <label="selection">
-                <input type="radio" name="radio" id="" value="">
-                <img id="photo-2" src="">
-            </label>
+                <label>
+                    <img id="photo-2" class= "photos" src="assets/cthulhu.jpg">
+                    <input id="radioTwo" type="radio" name="radio"  value="">
+                </label>
        
-            <label="selection">
-                <input type="radio" name="radio" id="" value="">
-                <img id="photo-3" src="">
-            </label>
-        </div>
+                <label>
+                    <img id="photo-3" class= "photos" src="assets/cthulhu.jpg">
+                    <input id="radioThree" type="radio" name="radio"  value="">
+                </label>
+            </div><br>
+            <div><button id="submit-button">Submit</button></div>
+            
+        </form>
     </main>
-
-        <div id="submit-button-div">
-            <button id="submit-button">Submit</button>
-        </div>
-
-    <section id="results">
-        <h2>Survery Results</h2>
-        <ul id="selections">
-            Selections:
+    <div>
+        <section id="results">
+            <h2>Survery Results</h2>
+            <ul id="selections">
+                Selections:
                 <li></li>
-
-        </ul>
-        <ul id="views">
-            Views:
+            </ul>
+            <ul id="views">
+                Views:
                 <li></li>
-        </ul>
-    </section>
-
+            </ul>
+        </section>
+    </div>  
     <script type="module" src="app.js"></script>
 </body>
 

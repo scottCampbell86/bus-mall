@@ -1,129 +1,80 @@
-import { products } from './itemArray';
+import products from './itemArray.js';
+import findItemById from './utils.js';
 
-// the current array
-let setArray = [];
-// prior array
-let priorSet = [];
-// selections array
-let selections = [];
-// total item views;
-let itemViews = [];
-//incrementor for 
-let totalSets = 1;
-//assignment to empty array for use in getting new set arrays
-let validProducts = [];
-//submit button to engage event listener
-const submitButton = document.getElementById('submit-button');
-//capturing value of selection
-const userChoice = document.querySelector('input:checked');
-const photoOne = documnet.getElementById(photo-1);
-const photoTwo = documnet.getElementById(photo-2);
-const photoThree = document.getElementById(photo-3)
 
-// on load
-export const firstArrayFunction = (products) => {
-  const initOne = Math.floor(Math.random() * products.length);
-  const initTwo = Math.floor(Math.random() * products.length);
-  const initThree = Math.floor(Math.random() * products.length);
+const productsList = products.slice();
+    //a duplicate of the original array, to preserve OG array throught the manipulations of state
 
-  const firstArray = [initOne.image, initTwo.image, initThree.image];
 
-  let firstArray = priorSet
-  return priorSet;
+/// --> FIRST : Identify & Set/Initiate State Variables
+// what elements/varibales will be 'managed' as this program runs, updating the state? 
+// set/inialize the value of those variable.
+
+
+let selections; 
+    // this is a variable whose value will be an array, whose elements will be created, and incrememented, based on user input
+
+let totalViews;
+    // this is a variable whose value will be an array, whose elemetns will be created, and incremebted, based upon the frequency of their rendering
+
+let totalSets;
+    // this is a variable who value will be incremented with each display rendering
+
+const initiateState = () => {
+    selections = 0;
+    totalViews = 0;
+    totalSets = 0;
+};
+
+initiateState();
+
+
+
+/// ---> SECOND : What will the user do to interact and modify these variables and update the state? AND, what does the site require for such an intervention?
+// 1. Display content
+    // need a number randomizer function that will generate nums that we can use as indicies to identify and return array items at random
+    // return 3 dissimlar products and render thsoe items on the page 
+        // render AS radio buttons
+        // will need to link products to radio buttons (assign radio to product)
+        // value of radio buttons to id of product (radio.value = product.id)
+  
+
+    //randomizer
+const randomProduct = (productsList) => {
+    const index = Math.floor(Math.random() * productsList.length);
+    const randomProduct = productsList[index];
+    return randomProduct;
 }
 
-// state engaged
-
-export const getValidProducts = (products, priorSet) => {
-  for (let i = 0; i < length.priorSet; i++) {
-      let i = priorSet[i];
-      let validProducts = products.splice(priorSet(i)); 
-  }
-  return validProducts;
-};
-
-// generates new set if items and precludes duplicates
-export const newSetFunction = (validProducts) => {
-    let setArray = []
-    let itemOne = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemOne.image);
-    let itemTwo = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemTwo.image);
-    let itemThree = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemThree.image);
-    while(itemOne === itemTwo) {
-      itemTwo = Math.floor(Math.random() * validProducts.length);
-  }
-    while(itemOne === number3 || itemTwo === itemThree) {
-      itemThree = Math.floor(Math.random() * validProducts.length);
-  }
-    return setArray;
-};
-
-
-
-
-// render set array on webpage
-export const renderSetFunction = (newSetFunction) => {
-   let setArray[0] = item1;
-   let setArray[1] = item2;
-   let setArray[2] = item3;
-
-   photoOne.src = item1;
-   photoTwo.src = item2;
-   photoThree.src = item3;
-
-};
-
-submitButton.addEventListener("click", () {
-  if (clicks > 0 && click < 25) {
-    displayResults()
-  }
-  let clicks = clicks += 1;
-  // getting ride of the items that previously appeared
-  getValidProducts(products, priorSet);
-  // this thius generates three random items and pushed them into an empty array
-  newSetFunction(validProducts);
-  // render set array on webpage
-  renderSetFunction(setArray);
-
-
-
-
-
-  const userChoice = document.querySelector('input:checked')
-  click++ 
-});
-
-
-export const getValidProducts = (products, priorSet) => {
-  for (let i = 0; i < length.priorSet; i++) {
-      let i = priorSet[i];
-      let validProducts = products.splice(priorSet(i)); 
-  }
-  return validProducts;
-};
-
-export const setArrayFunction = (validProducts) => {
-    let setArray = []
-    let itemOne = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemOne.image);
-    let itemTwo = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemTwo.image);
-    let itemThree = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemThree.image)
-
-    return setArray;
-};
-
-export placePhotos {
-    if clicks < 25 {
-      // render set array on page
+  //function will first, utilize our randomizer to return 3 dissimlar products 
+const returnThreeProducts = () => {
+  
+    let productOne = randomProduct(productsList);
+    let productTwo = randomProduct(productsList);
+    while (productOne.id === productTwo.id) {
+        productTwo = randomProduct(productsList)
     }
-}
+    let productThree = randomProduct(productsList);
+    while (productThree === productTwo || productThree === productOne) {
+        productThree = randomProduct(productsList);
+    }
+
+//AND then manipulate the DOM, rendering the content
+    let radioOne = 
+    let radioTwo =
+    let radioThree =
+
+    radioOne.value =
+    radioTwo.value =
+    radioThree.value =
+};
 
 
 
+
+
+// 2. need an eventListener that will increment both set and selection count 
+    // and will either render new content OR if sets >= 25, will DISPLAY RESULTS
 
 
 
