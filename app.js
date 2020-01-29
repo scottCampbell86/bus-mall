@@ -1,130 +1,178 @@
-import { products } from './itemArray';
+import products from './itemArray.js';
+import findById from './utils.js';
 
-// the current array
-let setArray = [];
-// prior array
-let priorSet = [];
-// selections array
-let selections = [];
-// total item views;
-let itemViews = [];
-//incrementor for 
-let totalSets = 1;
-//assignment to empty array for use in getting new set arrays
-let validProducts = [];
-//submit button to engage event listener
-const submitButton = document.getElementById('submit-button');
-//capturing value of selection
-const userChoice = document.querySelector('input:checked');
-const photoOne = documnet.getElementById(photo-1);
-const photoTwo = documnet.getElementById(photo-2);
-const photoThree = document.getElementById(photo-3)
 
-// on load
-export const firstArrayFunction = (products) => {
-  const initOne = Math.floor(Math.random() * products.length);
-  const initTwo = Math.floor(Math.random() * products.length);
-  const initThree = Math.floor(Math.random() * products.length);
+const productsList = products.slice();
+    //a duplicate of the original array, to preserve OG array throught the manipulations of state
 
-  const firstArray = [initOne.image, initTwo.image, initThree.image];
 
-  let firstArray = priorSet
-  return priorSet;
+/// --> FIRST : Identify & Set/Initiate State Variables
+// what elements/varibales will be 'managed' as this program runs, updating the state? 
+// set/inialize the value of those variable.
+
+
+let productSelectionCount; 
+ // this is a variable whose value will be an array, whose elements will be created, and incrememented, based on user input
+
+let totalViews;
+    // this is a variable whose value will be an array, whose elemetns will be created, and incremebted, based upon the frequency of their rendering
+
+let totalSets;
+    // this is a variable who value will be incremented with each display rendering
+
+const initiateState = () => {
+    productSelectionCount = [];
+    totalViews = [];
+    totalSets = 0;
+};
+
+initiateState();
+
+
+
+/// ---> SECOND : What will the user do to interact and modify these variables and update the state? AND, what does the site require for such an intervention?
+// 1. Display content
+    // need a number randomizer function that will generate nums that we can use as indicies to identify and return sets of items at random
+      // must return 3 dissimlar products 
+      
+  
+
+    //randomizer
+const randomProduct = (productsList) => {
+    const index = Math.floor(Math.random() * productsList.length);
+    const randomProduct = productsList[index];
+    return randomProduct;
 }
 
-// state engaged
+  //function (which will be called in eventual eventListener) will first, utilize our randomizer to return 3 dissimlar products 
+const returnThreeProducts = () => {
+  
+    let productOne = randomProduct(productsList);
+    let productTwo = randomProduct(productsList);
+    while (productOne.id === productTwo.id) {
+        productTwo = randomProduct(productsList)
+    }
+    let productThree = randomProduct(productsList);
+    while (productThree === productTwo || productThree === productOne) {
+        productThree = randomProduct(productsList);
+    }
 
-export const getValidProducts = (products, priorSet) => {
-  for (let i = 0; i < length.priorSet; i++) {
-      let i = priorSet[i];
-      let validProducts = products.splice(priorSet(i)); 
-  }
-  return validProducts;
+/// 2: equipped with those products, now manipulate the         DOM, rendering the content
+        //create seperate variables for each State element and assign corresponding properties from generated products
+          // each property (image ; name ; id) will be assigned to a variable.
+              //what do id's link to?
+              //where do img's go? What is needed (src)?
+              //where will name appear? How (p, h)?
+
+   /// these are all NEW variables, grabbing DOM
+    // id's
+    const radioOneButton = document.getElementById('radio-one');
+    const radioTwoButton = document.getElementById('radio-two');
+    const radioThreeButton = document.getElementById('radio-three') ;
+
+    // text 
+    const productOneText = document.getElementById('product-1-h3');
+    const productTwoText = document.getElementById('product-2-h3');
+    const productThreeText = document.getElementById('product-3-h3');
+
+    //image 
+    const radioOneImage = document.getElementById('radio-1-image');
+    const radioTwoImage = document.getElementById('radio-2-image');
+    const radioThreeImage = document.getElementById('radio-3-image');
+
+
+
+    //Assign appropriate properties of the displayed products (those generated above) to these DOM-grabbing-variables
+    //button
+        // id's --> values
+    radioOneButton.value = productOne.id;
+    radioTwoButton .value = productTwo.id;
+    radioThreeButton.value = productThree.id;
+
+    //text.content
+        // h3's to names
+    productOneText = productOne.name;
+    productTwoText = productTwo.name;
+    productThreeText = productThree.name;
+
+    //img
+        // assign the DOM variable's src to the iamge propert of generated product because 
+    radioOneImage.src = productOne.image;
+    radioTwoImage.src = productTwo.image;
+    radioThreeImage.src = productThree.image;
+    
 };
 
-// generates new set if items and precludes duplicates
-export const newSetFunction = (validProducts) => {
-    let setArray = []
-    let itemOne = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemOne.image);
-    let itemTwo = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemTwo.image);
-    let itemThree = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemThree.image);
-    while(itemOne === itemTwo) {
-      itemTwo = Math.floor(Math.random() * validProducts.length);
-  }
-    while(itemOne === number3 || itemTwo === itemThree) {
-      itemThree = Math.floor(Math.random() * validProducts.length);
-  }
-    return setArray;
-};
+/* INVENTORY
+  I have: 
+          -connected the value of radio buttons to the id           of the prouct (this value means I can access the id of the product upon productSelectionCount
+          -Names of products stored in var
+          -src of images stored in variable
+          - a function that returns three randomly generated products
+          - a function that generates individual random products
+          - declared state variables
+          - a function that sets an intial state
+  */
 
 
 
+// 3. need an eventListener that will 
+    // call the display function()
+    // must have be able to increment the values of state variables: productSelectionCount ; total views ; total sets
+    // must discern between rendering new content OR ending survery
+        // conditions are if sets >= 25, survery ends and will DISPLAY RESULTS. If not, render new content and continue to increment.
 
-// render set array on webpage
-export const renderSetFunction = (newSetFunction) => {
-   let setArray[0] = item1;
-   let setArray[1] = item2;
-   let setArray[2] = item3;
-
-   photoOne.src = item1;
-   photoTwo.src = item2;
-   photoThree.src = item3;
-
-};
-
-submitButton.addEventListener("click", () {
-  if (clicks > 0 && click < 25) {
-    displayResults()
-  }
-  let clicks = clicks += 1;
-  // getting ride of the items that previously appeared
-  getValidProducts(products, priorSet);
-  // this thius generates three random items and pushed them into an empty array
-  newSetFunction(validProducts);
-  // render set array on webpage
-  renderSetFunction(setArray);
+const form = document.querySelector('form')
+//this is creating a variable that is assigned to the value of the form and its contents
 
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log('go');
+    
+    // conditions the circumsances of survey rendering
+    if (totalSets >= 25) {
+        displayResults()
+    }
 
+    const formData = new FormData(form);
+    //this is taking in the form var, so the value of formData(var) is the data of the form itself upon event.
 
+    const selectedProductId = formData.get('selected');
+    //this is assigning the value of the selected product to the var
 
-  const userChoice = document.querySelector('input:checked')
-  click++ 
+    totalSets++;
+    //incrementing 
+    
+    //here checkcking whether or not the selected product already exists in the array passed as first argument.
+        //this works because the value of the button is assigned to the id of the product
+    const productExistCheck = findById(productSelectionCount, selectedProductId);
+
+    //conditional to either push that product into array as new object or add it to existing object
+    if (productExistCheck) {
+        productExistCheck.votes++;
+    }
+
+    productSelectionCount.push({
+        id: selectedProductId,
+        votes: 1,
+    })   
+
 });
 
-
-export const getValidProducts = (products, priorSet) => {
-  for (let i = 0; i < length.priorSet; i++) {
-      let i = priorSet[i];
-      let validProducts = products.splice(priorSet(i)); 
-  }
-  return validProducts;
-};
-
-export const setArrayFunction = (validProducts) => {
-    let setArray = []
-    let itemOne = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemOne.image);
-    let itemTwo = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemTwo.image);
-    let itemThree = Math.floor(Math.random() * validProducts.length);
-    setArray.push(itemThree.image)
-
-    return setArray;
-};
-
-export placePhotos {
-    if clicks < 25 {
-      // render set array on page
-    }
-}
+    
 
 
 
 
+
+
+
+
+
+
+
+// 4. Display results
 
 
 
