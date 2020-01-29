@@ -1,5 +1,5 @@
 import products from './itemArray.js';
-import findItemById from './utils.js';
+import findById from './utils.js';
 
 
 const productsList = products.slice();
@@ -11,8 +11,8 @@ const productsList = products.slice();
 // set/inialize the value of those variable.
 
 
-let selections; 
-    // this is a variable whose value will be an array, whose elements will be created, and incrememented, based on user input
+let productSelectionCount; 
+ // this is a variable whose value will be an array, whose elements will be created, and incrememented, based on user input
 
 let totalViews;
     // this is a variable whose value will be an array, whose elemetns will be created, and incremebted, based upon the frequency of their rendering
@@ -21,7 +21,7 @@ let totalSets;
     // this is a variable who value will be incremented with each display rendering
 
 const initiateState = () => {
-    selections = [];
+    productSelectionCount = [];
     totalViews = [];
     totalSets = 0;
 };
@@ -105,7 +105,7 @@ const returnThreeProducts = () => {
 
 /* INVENTORY
   I have: 
-          -connected the value of radio buttons to the id           of the prouct (this value means I can access the id of the product upon selection)
+          -connected the value of radio buttons to the id           of the prouct (this value means I can access the id of the product upon productSelectionCount
           -Names of products stored in var
           -src of images stored in variable
           - a function that returns three randomly generated products
@@ -118,7 +118,7 @@ const returnThreeProducts = () => {
 
 // 3. need an eventListener that will 
     // call the display function()
-    // must have be able to increment the values of state variables: selections ; total views ; total sets
+    // must have be able to increment the values of state variables: productSelectionCount ; total views ; total sets
     // must discern between rendering new content OR ending survery
         // conditions are if sets >= 25, survery ends and will DISPLAY RESULTS. If not, render new content and continue to increment.
 
@@ -126,7 +126,43 @@ const form = document.querySelector('form')
 //this is creating a variable that is assigned to the value of the form and its contents
 
 
-form.addEventListener
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log('go');
+    
+    // conditions the circumsances of survey rendering
+    if (totalSets >= 25) {
+        displayResults()
+    }
+
+    const formData = new FormData(form);
+    //this is taking in the form var, so the value of formData(var) is the data of the form itself upon event.
+
+    const selectedProductId = formData.get('selected');
+    //this is assigning the value of the selected product to the var
+
+    totalSets++;
+    //incrementing 
+    
+    //here checkcking whether or not the selected product already exists in the array passed as first argument.
+        //this works because the value of the button is assigned to the id of the product
+    const productExistCheck = findById(productSelectionCount, selectedProductId);
+
+    //conditional to either push that product into array as new object or add it to existing object
+    if (productExistCheck) {
+        productExistCheck.votes++;
+    }
+
+    productSelectionCount.push({
+        id: selectedProductId,
+        votes: 1,
+    })   
+
+});
+
+    
+
+
 
 
 
