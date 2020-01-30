@@ -66,9 +66,9 @@ const returnThreeProducts = () => {
 
    /// these are all NEW variables, grabbing DOM
     // id's
-    const radioOneButton = document.getElementById('radio-one');
-    const radioTwoButton = document.getElementById('radio-two');
-    const radioThreeButton = document.getElementById('radio-three') ;
+    const radioOneButton = document.getElementById('radio-1');
+    const radioTwoButton = document.getElementById('radio-2');
+    const radioThreeButton = document.getElementById('product-3') ;
 
     // text 
     const productOneText = document.getElementById('product-1-h3');
@@ -91,9 +91,9 @@ const returnThreeProducts = () => {
 
     //text.content
         // h3's to names
-    productOneText = productOne.name;
-    productTwoText = productTwo.name;
-    productThreeText = productThree.name;
+    productOneText.textContent = productOne.name;
+    productTwoText.textContent = productTwo.name;
+    productThreeText.textContent = productThree.name;
 
     //img
         // assign the DOM variable's src to the iamge propert of generated product because 
@@ -102,18 +102,6 @@ const returnThreeProducts = () => {
     radioThreeImage.src = productThree.image;
     
 };
-
-/* INVENTORY
-  I have: 
-          -connected the value of radio buttons to the id           of the prouct (this value means I can access the id of the product upon productSelectionCount
-          -Names of products stored in var
-          -src of images stored in variable
-          - a function that returns three randomly generated products
-          - a function that generates individual random products
-          - declared state variables
-          - a function that sets an intial state
-  */
-
 
 
 // 3. need an eventListener that will 
@@ -124,11 +112,11 @@ const returnThreeProducts = () => {
 
 const form = document.querySelector('form')
 //this is creating a variable that is assigned to the value of the form and its contents
-
+returnThreeProducts();
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log('go');
+    console.log('submit is live');
     
     // conditions the circumsances of survey rendering
     if (totalSets >= 25) {
@@ -151,13 +139,14 @@ form.addEventListener("submit", (e) => {
     //conditional to either push that product into array as new object or add it to existing object
     if (productExistCheck) {
         productExistCheck.votes++;
-    }
+    } else {
 
-    productSelectionCount.push({
-        id: selectedProductId,
-        votes: 1,
-    })   
-
+        productSelectionCount.push({
+            id: selectedProductId,
+            votes: 1,
+        }); 
+    } 
+     returnThreeProducts();
 });
 
     
