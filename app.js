@@ -36,12 +36,10 @@ const returnThreeProducts = () => {
     const radioTwoButton = document.getElementById('radio-2');
     const radioThreeButton = document.getElementById('product-3') ;
 
-    // text 
     const productOneText = document.getElementById('product-1-h3');
     const productTwoText = document.getElementById('product-2-h3');
     const productThreeText = document.getElementById('product-3-h3');
 
-    //image 
     const radioOneImage = document.getElementById('radio-1-image');
     const radioTwoImage = document.getElementById('radio-2-image');
     const radioThreeImage = document.getElementById('radio-3-image');
@@ -65,7 +63,7 @@ const returnThreeProducts = () => {
         let item = thisSet[i];
         totalViews.push(item.name);
     }
-    console.log(totalViews);
+console.log(totalViews);
 };
 
 const form = document.querySelector('form');
@@ -74,18 +72,14 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     
     if (totalSets >= 25) {
-        displayResults();
+        window.location = 'assets/results.html';
     } else {
         totalSets += 1;
-        console.log('total sets = ' + totalSets);
+console.log('total sets = ' + totalSets);
     };
 
     const formData = new FormData(form);
-
-
     const selectedProductId = formData.get('product');
-        //console.log('selected products = ' + selectedProductId);
-  
     const productExistCheck = findById(selectedProductCount, selectedProductId);
     
     if (productExistCheck) {
@@ -98,11 +92,18 @@ form.addEventListener("submit", (e) => {
         });
         
     }
-    console.log(selectedProductCount);
-    
+console.log(selectedProductCount);
+
+    document.querySelector('input[name="product"]:checked').checked = false;
+
+    localStorage.setItem('votes', JSON.stringify(selectedProductCount));
+
     returnThreeProducts(); 
 });
-//function reset() {
-    //initiateState();
-//}
-// 4. Display results
+
+function reset() {
+    initiateState();
+};
+
+
+returnThreeProducts(); 
