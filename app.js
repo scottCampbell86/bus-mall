@@ -60,10 +60,14 @@ const returnThreeProducts = () => {
     radioTwoImage.src = productTwo.image;
     radioThreeImage.src = productThree.image;
 
-    const thisSet = [productOne.id, productTwo.id, productThree.id];
-    totalViews.push(thisSet);
-    
+    const thisSet = [productOne, productTwo, productThree];
+    for (let i = 0 ; i < thisSet.length ; i++) {
+        let item = thisSet[i];
+        totalViews.push(item.name);
+    }
+    console.log(totalViews);
 };
+
 
 
 const form = document.querySelector('form');
@@ -75,21 +79,17 @@ form.addEventListener("submit", (e) => {
         displayResults();
     } else {
         totalSets += 1;
-            console.log('total sets = ' + totalSets);
+        console.log('total sets = ' + totalSets);
     };
 
     const formData = new FormData(form);
 
 
     const selectedProductId = formData.get('product');
-        console.log('selected products = ' + selectedProductId);
+        //console.log('selected products = ' + selectedProductId);
   
- 
-
     const productExistCheck = findById(selectedProductCount, selectedProductId);
     
-
-    //conditional to either push that product into array as new object or add it to existing object
     if (productExistCheck) {
         productExistCheck.votes++;
     } else {
@@ -99,33 +99,12 @@ form.addEventListener("submit", (e) => {
             votes: 1,
         });
         
-    console.log(productExistCheck);
+    }
     console.log(selectedProductCount);
-    } 
-    returnThreeProducts();
-  
+    
+    returnThreeProducts(); 
 });
-
 //function reset() {
     //initiateState();
 //}
-
-    
-
-
-
-
-
-
-
-
-
-
-
 // 4. Display results
-
-
-
-
-
-
