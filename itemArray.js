@@ -72,7 +72,7 @@ const products = [
     {
         id: 'sweep',
         name: 'Sweep',
-        image: 'assests/sweep.png',
+        image: 'assets/sweep.png',
     },
     {
         id: 'tauntaun',
@@ -82,7 +82,7 @@ const products = [
     {
         id: 'unicorn',
         name: 'Unicorn',
-        image: 'assets/shark.jpg',
+        image: 'assets/unicorn.jpg',
     },
     {
         id: 'usb',
