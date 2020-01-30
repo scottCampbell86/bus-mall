@@ -1,8 +1,31 @@
-#survey {
+* {
+  background-color: azure;
+}
+img {
+  width: 300px;
+  max-height: 250px;
+  min-height: 250px;
 
 }
 
-#submit-button-div {
+#survey {
+  flex-direction: center;
+}
+
+#submit-button {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 75px;
+  height: 70px;
+  width: 70px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 25px;
+  color: white;
+  background: midnightblue;
+  padding-left: 19px;
+  margin-left: 540px;
+  font-style: italic;
   
 }
 
@@ -12,8 +35,59 @@
   align-content: space-around;
 }
 
+.radios {
+  margin-top: 196px;
+}
+
 .photos {
   display: flex;
   flex-direction: row;
-  align-content: space-around;
 }
+
+.header {
+  text-align: center;
+  color: tomato;
+  font-family: monospace;
+  margin-bottom: 25px;
+}
+
+.button-div {
+  display: flex;
+}
+
+.h3 {
+  justify-content: baseline;
+  padding-right: 10px;
+  margin-top: 190px;
+  margin-right: 10px;
+  font-family: monospace;
+  font-size: 23px;
+  color: rgb(0, 166, 216);
+}
+
+h2 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#survey {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  padding-left: 20px;
+  margin-top: 40px;
+}
+
+#form {
+  margin-left: 160px;
+}
+
+.images {
+  border-radius: 15px;
+  border-style: groove;
+  border-color: whitesmoke;
+}
+
+
+
+

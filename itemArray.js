@@ -67,22 +67,22 @@ const products = [
     {
         id: 'shark',
         name: 'Shark',
-        image: '---',
+        image: 'assets/shark.jpg',
     },
     {
         id: 'sweep',
         name: 'Sweep',
-        image: '---',
+        image: 'assets/sweep.png',
     },
     {
         id: 'tauntaun',
         name: 'Tauntaun',
-        image: '---',
+        image: 'assets/tauntaun.jpg',
     },
     {
         id: 'unicorn',
         name: 'Unicorn',
-        image: 'assets/shark.jpg',
+        image: 'assets/unicorn.jpg',
     },
     {
         id: 'usb',
